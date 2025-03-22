@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fc;
+      color: #333;
+      animation: fadeIn 1s ease-in;
+    }
+
+    /* Fade-in effect for the body */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .pricing-section {
+      background-color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      opacity: 0;
+      animation: slideUp 1s forwards;
+    }
+
+    /* Animation for the section to slide up */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pricing-container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .pricing-header {
+      margin-bottom: 40px;
+    }
+
+    .pricing-title {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 10px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    /* Animation for the title */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pricing-description {
+      font-size: 1rem;
+      color: #777;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .pricing-plans {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      animation: fadeIn 1s ease-out 0.5s;
+    }
+
+    /* Animation for plan cards */
+    .plan-column {
+      flex: 1;
+      min-width: 280px;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .plan-column:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .plan-column:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .plan-column:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .plan-card {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: cardFadeIn 1s ease-in forwards;
+    }
+
+    /* Fade-in animation for plan cards */
+    @keyframes cardFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .plan-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .plan-name {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .plan-price {
+      font-size: 2rem;
+      color: #2d87f0;
+      margin-bottom: 20px;
+    }
+
+    .plan-features {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+
+    .plan-features li {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .plan-button {
+      background-color: #2d87f0;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      animation: buttonBounce 1s ease-out infinite;
+    }
+
+    /* Bounce effect for the buttons */
+    @keyframes buttonBounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .plan-button:hover {
+      background-color: #2168c3;
+    }
+
+    /* Specific plan button styles */
+    .starter-button {
+      background-color: #f0a500;
+    }
+
+    .starter-button:hover {
+      background-color: #e08500;
+    }
+
+    .pro-button {
+      background-color: #28a745;
+    }
+
+    .pro-button:hover {
+      background-color: #218838;
+    }
+
+    .enterprise-button {
+      background-color: #dc3545;
+    }
+
+    .enterprise-button:hover {
+      background-color: #c82333;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .pricing-plans {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .plan-column {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Pricing Section -->
+  <section class="pricing-section">
+    <div class="pricing-container">
+      <div class="pricing-header">
+        <h2 class="pricing-title">Simple, Transparent Pricing</h2>
+        <p class="pricing-description">
+          Choose the plan that works for you. All plans include access to
+          our platform, lead generation tools, and dedicated support. No hidden fees.
+        </p>
+      </div>
+
+      <div class="pricing-plans">
+        <div class="plan-column">
+          <div class="plan-card starter-plan">
+            <h3 class="plan-name">STARTER</h3>
+            <p class="plan-price">$50 / month</p>
+            <ul class="plan-features">
+              <li>Up to 10 projects</li>
+              <li>Basic analytics</li>
+              <li>48-hour support</li>
+              <li>Limited API access</li>
+              <li>Community support</li>
+            </ul>
+            <button class="plan-button starter-button">Start Free Trial</button>
+          </div>
+        </div>
+
+        <div class="plan-column">
+          <div class="plan-card pro-plan">
+            <h3 class="plan-name">PROFESSIONAL</h3>
+            <p class="plan-price">$99 / month</p>
+            <ul class="plan-features">
+              <li>Unlimited projects</li>
+              <li>Advanced analytics</li>
+              <li>24-hour support</li>
+              <li>Full API access</li>
+              <li>Priority support</li>
+              <li>Team collaboration</li>
+              <li>Custom integrations</li>
+            </ul>
+            <button class="plan-button pro-button">Get Started</button>
+          </div>
+        </div>
+
+        <div class="plan-column">
+          <div class="plan-card enterprise-plan">
+            <h3 class="plan-name">ENTERPRISE</h3>
+            <p class="plan-price">$299 / month</p>
+            <ul class="plan-features">
+              <li>Everything in Professional</li>
+              <li>Custom solutions</li>
+              <li>Dedicated manager</li>
+              <li>1-hour support</li>
+              <li>SSO Authentication</li>
+              <li>Advanced security</li>
+              <li>Custom contracts</li>
+              <li>SLA agreement</li>
+            </ul>
+            <button class="plan-button enterprise-button">Contact Sales</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
